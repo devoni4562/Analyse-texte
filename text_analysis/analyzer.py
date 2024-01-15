@@ -1,3 +1,4 @@
+from service import letter_verification
 def analyze_word_frequency(text):
     # Divise le texte en mots
     words = text.split()
@@ -10,8 +11,8 @@ def analyze_word_frequency(text):
         # Suppression de la ponctuation
         word = word.strip('.,?!;:()\"\'')
 
-        # Vérifier si le mot est composé uniquement de ponctuation
-        if not word or all(char in '.,?!";:()' for char in word):
+        # Vérifier si le mot est valide
+        if not letter_verification(word):
             continue  # Ignorer ce mot et passer au suivant
 
         # Conversion en minuscule pour une correspondance insensible à la casse
@@ -25,3 +26,5 @@ def analyze_word_frequency(text):
             word_frequency[word] += 1
 
     return word_frequency
+
+
