@@ -25,6 +25,8 @@ def analyze_word_frequency(text):
             # Incrémente le compteur.
             word_frequency[word] += 1
 
-    return word_frequency
+    sorted_word_frequency = dict(sorted(word_frequency.items(), key=lambda item: item[1], reverse=True))
+
+    return sorted_word_frequency
 
 
